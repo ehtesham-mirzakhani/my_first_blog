@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 def post_list(request):
     return render(request, 'blog/post_list.html', {})
 def show(request):
-    return HttpResponse(request)
+    return HttpResponse('request')
 
 def post5(request):
-    me = User.objects.get(Username = 'admin')
+    me = User.objects.get(username='admin')
     for i in range(5):
         text = f'text{i}'
         title = f'title{i}'
