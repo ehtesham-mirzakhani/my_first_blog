@@ -1,7 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+
     <head>
-        <title>Ola's blog</title>
+        <title>ehti's blog</title>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <style>
+
+            h3,h4,h5,h6,p,time{
+                font-size:18px;
+                color:orange;
+            }
+            
+            </style>
     </head>
     <header>
         <h1><a href="/">Django Girls Blog</a></h1>
@@ -9,8 +20,8 @@
     
 {% for post in mypost %}
     <article>
-        <time>published: {{ post.published_date }}</time>
         <h2><a href="">{{ post.title }}</a></h2>
+        <time>published: {{ post.published_date }}</time>
         <p>{{ post.text|linebreaksbr }}</p>
     </article>
 {% endfor %}
