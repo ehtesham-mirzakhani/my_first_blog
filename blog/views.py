@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse , get_object_or_404
 from .models import Post
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -17,3 +17,7 @@ def post5(request):
         title = f'title{i}'
         Post.objects.create(author=me ,text=text,title=title).publish()
     return HttpResponse("its done (post5)")
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
