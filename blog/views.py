@@ -18,6 +18,7 @@ def post5(request):
         Post.objects.create(author=me ,text=text,title=title).publish()
     return HttpResponse("its done (post5)")
 
-def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+def post_detail(request, pks):
+    # post = Post.objects.get(pk=pks)
+    post = get_object_or_404(Post, pk=pks)
     return render(request, 'blog/post_detail.html', {'post': post})
